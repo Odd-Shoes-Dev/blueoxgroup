@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { getCurrentUser, signOut } from "@/lib/providers/auth"
+import { AdminNavLink } from "./admin-nav-link"
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const user = await getCurrentUser()
@@ -27,11 +28,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
           </Link>
 
           <nav className="flex items-center gap-2">
-            {isAdmin && (
-              <Button variant="ghost" size="sm" nativeButton={false} render={<Link href="/dashboard" />}>
-                My profile
-              </Button>
-            )}
+            {isAdmin && <AdminNavLink />}
             <form
               action={async () => {
                 "use server"
