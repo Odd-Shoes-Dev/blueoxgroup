@@ -14,7 +14,7 @@ export default async function DashboardPage() {
   if (!user) redirect("/sign-in")
 
   const profile = await getProfileByUserId(user.id)
-  if (!profile) redirect("/sign-up")
+  if (!profile) redirect("/complete-profile")
 
   return (
     <div className="grid gap-10">

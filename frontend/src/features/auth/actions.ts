@@ -3,8 +3,9 @@
 import bcrypt from "bcryptjs"
 
 import { db } from "@/lib/providers/database"
-import { signIn } from "@/lib/providers/auth"
-import { signInSchema, signUpSchema, type SignUpInput } from "./schemas"
+import { signIn, requireRole, getCurrentUser } from "@/lib/providers/auth"
+import { revalidatePath } from "next/cache"
+import { signInSchema, signUpSchema, completeProfileSchema, type SignUpInput, type CompleteProfileInput } from "./schemas"
 
 export type ActionResult =
   | { ok: true }
@@ -76,5 +77,44 @@ export async function signInAction(input: { email: string; password: string }): 
     return { ok: false, message: "Invalid email or password." }
   }
 
+  return { ok: true }
+}
+
+export async function completeProfileAction(input: CompleteProfileInput): Promise<ActionResult> {
+  const user = await getCurrentUser()
+  if (!user) return { ok: false, message: "You must be signed in to complete your profile." }
+
+  const parsed = completeProfileSchema.safeParse(input)
+  if (!parsed.success) {
+    return {
+      ok: false,
+      message: "Please fix the errors below.",
+      fieldErrors: parsed.error.flatten().fieldErrors as Record<string, string[]>,
+    }
+  }
+
+  const { fullName, phoneNumber, dateOfBirth, location, educationLevel, languages } = parsed.data
+
+  const existing = await db.sql`
+    select id from sales_profiles where user_id = ${user.id} and deleted_at is null limit 1
+  `
+  if (existing.length > 0) return { ok: true }
+
+  const profileId = crypto.randomUUID()
+
+  await db.transaction((sql) => [
+    sql`
+      insert into sales_profiles
+        (id, user_id, full_name, phone_number, date_of_birth, location, education_level)
+      values
+        (${profileId}, ${user.id}, ${fullName}, ${phoneNumber}, ${dateOfBirth}, ${location}, ${educationLevel ?? null})
+    `,
+    ...languages.map(
+      (language) =>
+        sql`insert into sales_profile_languages (sales_profile_id, language) values (${profileId}, ${language})`
+    ),
+  ])
+
+  revalidatePath("/dashboard")
   return { ok: true }
 }

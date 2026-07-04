@@ -35,3 +35,19 @@ export const signInSchema = z.object({
 })
 
 export type SignInInput = z.infer<typeof signInSchema>
+
+export const completeProfileSchema = z.object({
+  fullName: z.string().trim().min(2, "Full name is required"),
+  phoneNumber: z.string().trim().min(6, "Enter a valid phone number"),
+  dateOfBirth: z
+    .string()
+    .refine((val) => !Number.isNaN(Date.parse(val)), "Enter a valid date")
+    .refine((val) => isAtLeastAge(new Date(val), MIN_AGE_YEARS), {
+      message: "You must be at least 18 years old to sign up",
+    }),
+  location: z.string().trim().min(2, "Location is required"),
+  educationLevel: z.string().trim().optional(),
+  languages: z.array(z.string().trim().min(1)).min(1, "Add at least one language"),
+})
+
+export type CompleteProfileInput = z.infer<typeof completeProfileSchema>
