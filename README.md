@@ -1,5 +1,5 @@
 # Blue Ox Group
-
+ 
 Website for Blue Ox Group: showcases the group and its member software
 companies, and hosts a directory of sales/marketing representatives (profile,
 contact details, active/inactive availability).
