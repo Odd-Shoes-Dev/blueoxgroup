@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache"
 
 import { db } from "@/lib/providers/database"
-import { requireRole } from "@/lib/providers/auth"
+import { requireRole, getCurrentUser } from "@/lib/providers/auth"
 import { updateProfileSchema, type UpdateProfileInput } from "./schemas"
 
 export type ActionResult =
@@ -83,6 +83,20 @@ export async function toggleActiveAction(): Promise<ActionResult> {
       active_status_updated_at = now(),
       updated_at = now()
     where id = ${profile.id}
+  `
+
+  revalidatePath("/dashboard")
+  return { ok: true }
+}
+
+export async function updateAvatarAction(avatarUrl: string | null): Promise<ActionResult> {
+  const user = await getCurrentUser()
+  if (!user) return { ok: false, message: "Not authenticated." }
+
+  await db.sql`
+    update sales_profiles
+    set avatar_url = ${avatarUrl}, updated_at = now()
+    where user_id = ${user.id} and deleted_at is null
   `
 
   revalidatePath("/dashboard")

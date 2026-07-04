@@ -1,6 +1,13 @@
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { RepActions } from "./rep-actions"
 import type { RepRow } from "../queries"
+
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/)
+  if (parts.length === 1) return parts[0][0]?.toUpperCase() ?? "?"
+  return ((parts[0][0] ?? "") + (parts[parts.length - 1][0] ?? "")).toUpperCase()
+}
 
 interface RepsTableProps {
   reps: RepRow[]
@@ -31,7 +38,15 @@ export function RepsTable({ reps }: RepsTableProps) {
         <tbody className="divide-y">
           {reps.map((rep) => (
             <tr key={rep.profileId} className="bg-background hover:bg-muted/30 transition-colors">
-              <td className="px-4 py-3 font-medium">{rep.fullName}</td>
+              <td className="px-4 py-3">
+                <div className="flex items-center gap-2.5">
+                  <Avatar size="sm">
+                    {rep.avatarUrl && <AvatarImage src={rep.avatarUrl} alt={rep.fullName} />}
+                    <AvatarFallback>{getInitials(rep.fullName)}</AvatarFallback>
+                  </Avatar>
+                  <span className="font-medium">{rep.fullName}</span>
+                </div>
+              </td>
               <td className="px-4 py-3 text-muted-foreground">{rep.location}</td>
               <td className="px-4 py-3">
                 <div className="flex flex-wrap gap-1">
