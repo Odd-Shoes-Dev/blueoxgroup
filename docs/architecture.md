@@ -7,7 +7,7 @@ database hosted on Neon. There is currently no separate backend service — all
 server-side logic runs as Next.js API routes / server actions. `backend/` is a
 reserved, empty placeholder for a future Express service (see `backend/README.md`).
 
-## Core principles     
+## Core principles       
 
 1. **No direct third-party calls from feature code.** Every third-party
    integration (database, auth providers, etc.) is accessed through a small
