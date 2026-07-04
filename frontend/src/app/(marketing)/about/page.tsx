@@ -57,7 +57,7 @@ export default function AboutPage() {
           <p className="mb-3 font-utility text-xs uppercase tracking-widest text-muted-foreground">
             About Blue Ox Group
           </p>
-          <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-6xl">
+          <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-6xl" style={{ color: "var(--brand-blue)" }}>
             Software companies,
             <br />
             <span className="text-muted-foreground">human distribution.</span>
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <h2 className="mb-10 font-display text-2xl uppercase tracking-[0.08em]">How we work</h2>
+        <h2 className="mb-10 font-display text-2xl uppercase tracking-[0.08em]" style={{ color: "var(--brand-blue)" }}>How we work</h2>
         <dl className="grid gap-8 sm:grid-cols-3">
           {VALUES.map(({ title, description }) => (
             <div key={title}>
@@ -89,7 +89,7 @@ export default function AboutPage() {
 
       {/* Companies */}
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <h2 className="mb-10 font-display text-2xl uppercase tracking-[0.08em]">Our companies</h2>
+        <h2 className="mb-10 font-display text-2xl uppercase tracking-[0.08em]" style={{ color: "var(--brand-blue)" }}>Our companies</h2>
         <div className="grid gap-6 sm:grid-cols-3">
           {COMPANIES.map(({ name, focus, description }) => (
             <div
@@ -112,7 +112,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-5xl px-6 py-20">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="font-display text-2xl uppercase tracking-[0.08em]">
+            <h2 className="font-display text-2xl uppercase tracking-[0.08em]" style={{ color: "var(--brand-blue)" }}>
               Represent Blue Ox Group products
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">

@@ -44,7 +44,7 @@ export default function HomePage() {
         <div className="mb-6 inline-flex items-center rounded-full border bg-muted/50 px-3 py-1 font-utility text-xs font-medium text-muted-foreground">
           Sales representative network
         </div>
-        <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-7xl">
+        <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-7xl" style={{ color: "var(--brand-blue)" }}>
           The right rep,
           <br />
           <span className="text-muted-foreground">in the right district.</span>
@@ -80,7 +80,7 @@ export default function HomePage() {
       {/* How it works */}
       <section className="mx-auto max-w-5xl px-6 py-24">
         <div className="mb-14 text-center">
-          <h2 className="font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl">How it works</h2>
+          <h2 className="font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl" style={{ color: "var(--brand-blue)" }}>How it works</h2>
           <p className="mt-3 text-muted-foreground">
             Simple by design — coordination happens where it's fastest.
           </p>
@@ -99,7 +99,7 @@ export default function HomePage() {
       {/* CTA */}
       <section className="border-t bg-muted/30">
         <div className="mx-auto max-w-5xl px-6 py-24 text-center">
-          <h2 className="mb-4 font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl">
+          <h2 className="mb-4 font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl" style={{ color: "var(--brand-blue)" }}>
             Ready to join?
           </h2>
           <p className="mb-8 text-muted-foreground">

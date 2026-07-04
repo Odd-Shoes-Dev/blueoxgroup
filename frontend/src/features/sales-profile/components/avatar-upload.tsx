@@ -20,9 +20,10 @@ function getInitials(name: string): string {
 interface AvatarUploadProps {
   name: string
   currentUrl: string | null
+  onUploadSuccess?: (url: string) => void
 }
 
-export function AvatarUpload({ name, currentUrl }: AvatarUploadProps) {
+export function AvatarUpload({ name, currentUrl, onUploadSuccess }: AvatarUploadProps) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(currentUrl)
   const [isUploading, startUpload] = useTransition()
   const inputRef = useRef<HTMLInputElement>(null)
@@ -60,6 +61,7 @@ export function AvatarUpload({ name, currentUrl }: AvatarUploadProps) {
       }
 
       setPreviewUrl(data.url!)
+      onUploadSuccess?.(data.url!)
       toast.success("Profile photo updated.")
     })
 
