@@ -15,6 +15,11 @@ export default auth((req) => {
   const { pathname } = req.nextUrl
   const user = req.auth?.user
 
+  // Suspended users can only reach /suspended and auth/sign-out routes
+  if (user?.role === "suspended" && !pathname.startsWith("/suspended")) {
+    return NextResponse.redirect(new URL("/suspended", req.nextUrl.origin))
+  }
+
   const isAdminRoute = pathname.startsWith("/admin")
   const isDashboardRoute = pathname.startsWith("/dashboard")
 

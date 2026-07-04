@@ -17,7 +17,7 @@ interface RepCardProps {
 export function RepCard({ rep, isSelf = false }: RepCardProps) {
   return (
     <div className="flex flex-col rounded-xl border bg-card p-5 gap-4 hover:shadow-sm transition-shadow">
-      {/* Header: avatar + name + status */}
+      {/* Header: avatar + name + status + three-dot menu */}
       <div className="flex items-start gap-3">
         <Avatar size="lg" className="size-12 shrink-0">
           {rep.avatarUrl && <AvatarImage src={rep.avatarUrl} alt={rep.fullName} />}
@@ -38,6 +38,13 @@ export function RepCard({ rep, isSelf = false }: RepCardProps) {
             )}
           </div>
         </div>
+        {!isSelf && (
+          <RepActions
+            profileId={rep.profileId}
+            isActive={rep.isActive}
+            fullName={rep.fullName}
+          />
+        )}
       </div>
 
       {/* Languages */}
@@ -57,16 +64,6 @@ export function RepCard({ rep, isSelf = false }: RepCardProps) {
         <span className="text-muted-foreground text-xs truncate">{rep.email}</span>
       </div>
 
-      {/* Actions */}
-      {!isSelf && (
-        <div className="pt-1 border-t">
-          <RepActions
-            profileId={rep.profileId}
-            isActive={rep.isActive}
-            fullName={rep.fullName}
-          />
-        </div>
-      )}
     </div>
   )
 }

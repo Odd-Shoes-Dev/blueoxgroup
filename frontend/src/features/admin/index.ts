@@ -1,5 +1,5 @@
-export { listReps } from "./queries"
-export type { RepRow, ListRepsFilters } from "./queries"
+export { listReps, listSuspendedReps } from "./queries"
+export type { RepRow, ListRepsFilters, SuspendedRep } from "./queries"
 export { RepsTable } from "./components/reps-table"
 export { RepCard } from "./components/rep-card"
 export { RepsDirectory } from "./components/reps-directory"
