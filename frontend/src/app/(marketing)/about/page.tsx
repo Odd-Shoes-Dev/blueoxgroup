@@ -97,7 +97,7 @@ export default function AboutPage() {
               className="rounded-xl border bg-card p-6 transition-shadow hover:shadow-sm"
             >
               <p className="mb-1 font-medium">{name}</p>
-              <p className="mb-3 font-utility text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="mb-3 font-utility text-xs uppercase tracking-widest" style={{ color: "var(--brand-orange)" }}>
                 {focus}
               </p>
               <p className="text-sm text-muted-foreground">{description}</p>

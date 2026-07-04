@@ -27,9 +27,15 @@ export function RepCard({ rep, isSelf = false }: RepCardProps) {
           <p className="font-medium leading-tight truncate">{rep.fullName}</p>
           <p className="text-sm text-muted-foreground truncate">{rep.location}</p>
           <div className="mt-1.5">
-            <Badge variant={rep.isActive ? "default" : "secondary"} className="text-xs">
-              {rep.isActive ? "Active" : "Inactive"}
-            </Badge>
+            {rep.isActive ? (
+              <Badge className="text-xs bg-brand-orange-light text-brand-orange-dark border-brand-orange/20">
+                Active
+              </Badge>
+            ) : (
+              <Badge variant="secondary" className="text-xs">
+                Inactive
+              </Badge>
+            )}
           </div>
         </div>
       </div>

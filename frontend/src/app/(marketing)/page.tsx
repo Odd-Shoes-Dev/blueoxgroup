@@ -70,7 +70,7 @@ export default function HomePage() {
             {STATS.map(({ label, value }) => (
               <div key={label} className="text-center">
                 <dt className="text-sm text-muted-foreground">{label}</dt>
-                <dd className="mt-1 font-display text-4xl tracking-[0.06em]">{value}</dd>
+                <dd className="mt-1 font-display text-4xl tracking-[0.06em] text-brand-orange">{value}</dd>
               </div>
             ))}
           </dl>
@@ -88,7 +88,7 @@ export default function HomePage() {
         <ol className="grid gap-8 sm:grid-cols-3">
           {HOW_IT_WORKS.map(({ step, title, description }) => (
             <li key={step} className="flex flex-col gap-3">
-              <span className="font-utility text-sm font-medium text-muted-foreground">{step}</span>
+              <span className="font-utility text-sm font-bold text-brand-orange">{step}</span>
               <h3 className="font-medium">{title}</h3>
               <p className="text-sm text-muted-foreground">{description}</p>
             </li>

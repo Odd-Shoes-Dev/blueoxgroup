@@ -65,9 +65,13 @@ export function RepsTable({ reps, currentUserId }: RepsTableProps) {
                 </div>
               </td>
               <td className="px-4 py-3">
-                <Badge variant={rep.isActive ? "default" : "secondary"}>
-                  {rep.isActive ? "Active" : "Inactive"}
-                </Badge>
+                {rep.isActive ? (
+                  <Badge className="bg-brand-orange-light text-brand-orange-dark border-brand-orange/20">
+                    Active
+                  </Badge>
+                ) : (
+                  <Badge variant="secondary">Inactive</Badge>
+                )}
               </td>
               <td className="px-4 py-3">
                 {rep.userId !== currentUserId && (
