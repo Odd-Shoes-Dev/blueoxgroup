@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { redirect } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
@@ -16,9 +17,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
           <Link
             href={isAdmin ? "/admin" : "/dashboard"}
-            className="text-sm font-semibold tracking-tight"
+            className="flex items-center gap-2.5"
           >
-            Blue Ox Group
+            <Image src="/logo.png" alt="Blue Ox Group" width={40} height={40} className="shrink-0" />
+            <span className="font-display text-base uppercase tracking-[0.08em]">Blue Ox Group</span>
           </Link>
 
           <nav className="flex items-center gap-2">

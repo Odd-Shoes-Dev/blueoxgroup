@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 import { Button } from "@/components/ui/button"
 
@@ -7,8 +8,9 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-          <Link href="/" className="text-base font-semibold tracking-tight">
-            Blue Ox Group
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image src="/logo.png" alt="Blue Ox Group" width={44} height={44} className="shrink-0" />
+            <span className="font-display text-xl uppercase tracking-[0.08em]">Blue Ox Group</span>
           </Link>
           <nav className="flex items-center gap-6">
             <Link
@@ -30,7 +32,10 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
         <div className="mx-auto max-w-5xl px-6 py-12">
           <div className="flex flex-col gap-8 sm:flex-row sm:justify-between">
             <div className="max-w-xs">
-              <p className="font-semibold tracking-tight">Blue Ox Group</p>
+              <div className="flex items-center gap-2.5">
+                <Image src="/logo.png" alt="Blue Ox Group" width={40} height={40} className="shrink-0" />
+                <p className="font-display text-lg uppercase tracking-[0.08em]">Blue Ox Group</p>
+              </div>
               <p className="mt-2 text-sm text-muted-foreground">
                 A holding group connecting software companies with active sales professionals
                 across regions.

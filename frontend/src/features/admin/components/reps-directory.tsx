@@ -37,8 +37,8 @@ export function RepsDirectory({ reps, currentUserId }: RepsDirectoryProps) {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Representatives</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <h1 className="font-display text-3xl uppercase tracking-[0.08em]">Representatives</h1>
+          <p className="mt-1 font-utility text-xs text-muted-foreground">
             {filtered.length} {filtered.length === 1 ? "rep" : "reps"}
             {location || language || status ? " match filters" : " total"}
             {activeCount > 0 && ` — ${activeCount} active`}
