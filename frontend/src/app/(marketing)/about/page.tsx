@@ -60,7 +60,7 @@ export default function AboutPage() {
           <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-6xl" style={{ color: "var(--brand-blue)" }}>
             Software companies,
             <br />
-            <span className="text-muted-foreground">human distribution.</span>
+            <span style={{ color: "oklch(0.28 0.15 264)" }}>human distribution.</span>
           </h1>
           <p className="text-lg text-muted-foreground">
             Blue Ox Group is a holding company building and growing software products for

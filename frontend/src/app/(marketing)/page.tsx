@@ -47,7 +47,7 @@ export default function HomePage() {
         <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-7xl" style={{ color: "var(--brand-blue)" }}>
           The right rep,
           <br />
-          <span className="text-muted-foreground">in the right district.</span>
+          <span style={{ color: "oklch(0.28 0.15 264)" }}>in the right district.</span>
         </h1>
         <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
           Blue Ox Group maintains a directory of active sales professionals across regions.
