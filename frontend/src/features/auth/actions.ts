@@ -71,21 +71,12 @@ export async function signInAction(input: { email: string; password: string }): 
     }
   }
 
-  try {
-    await signIn("credentials", { ...parsed.data, redirect: false })
   } catch {
-    // Check if this account exists but has no password (Google-only account)
-    const rows = await db.sql`
-      select password_hash from users where email = ${parsed.data.email} and deleted_at is null limit 1
-    `
-    const user = rows[0] as { password_hash: string | null } | undefined
-    if (user && !user.password_hash) {
-      return {
-        ok: false,
-        message: "This account was created with Google. Use 'Continue with Google' to sign in.",
-      }
+    return {
+      ok: false,
+      message:
+        "Invalid email or password. If you created your account with Google, use 'Continue with Google' to sign in.",
     }
-    return { ok: false, message: "Invalid email or password." }
   }
 
   return { ok: true }
