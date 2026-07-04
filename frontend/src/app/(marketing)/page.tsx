@@ -54,10 +54,10 @@ export default function HomePage() {
           When a new product opportunity arises, we know exactly who to call.
         </p>
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Button size="lg" render={<Link href="/sign-up" />}>
+          <Button size="lg" nativeButton={false} render={<Link href="/sign-up" />}>
             Join the network
           </Button>
-          <Button size="lg" variant="outline" render={<Link href="/about" />}>
+          <Button size="lg" variant="outline" nativeButton={false} render={<Link href="/about" />}>
             Learn more
           </Button>
         </div>
@@ -106,7 +106,7 @@ export default function HomePage() {
             Create your profile in minutes. No approval process — just fill in your details and
             set yourself active.
           </p>
-          <Button size="lg" render={<Link href="/sign-up" />}>
+          <Button size="lg" nativeButton={false} render={<Link href="/sign-up" />}>
             Get started
           </Button>
         </div>

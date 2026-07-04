@@ -72,13 +72,10 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
         </Button>
         {(location || language || status) && (
           <Button
-            type="submit"
             variant="ghost"
             size="sm"
-            render={
-              // Clear by navigating to the same page without params
-              <a href="/admin" />
-            }
+            nativeButton={false}
+            render={<a href="/admin" />}
           >
             Clear
           </Button>

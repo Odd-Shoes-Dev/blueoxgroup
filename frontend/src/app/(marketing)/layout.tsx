@@ -17,7 +17,7 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             >
               About
             </Link>
-            <Button size="sm" render={<Link href="/sign-in" />}>
+            <Button size="sm" nativeButton={false} render={<Link href="/sign-in" />}>
               Sign in
             </Button>
           </nav>

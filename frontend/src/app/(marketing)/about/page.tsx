@@ -119,7 +119,7 @@ export default function AboutPage() {
               Based in a region we operate in? Join our network as a sales representative.
             </p>
           </div>
-          <Button render={<Link href="/sign-up" />} className="shrink-0">
+          <Button nativeButton={false} render={<Link href="/sign-up" />} className="shrink-0">
             Join the network
           </Button>
         </div>

@@ -18,7 +18,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
           <nav className="flex items-center gap-2">
             {user.role === "admin" && (
-              <Button variant="ghost" size="sm" render={<Link href="/admin" />}>
+              <Button variant="ghost" size="sm" nativeButton={false} render={<Link href="/admin" />}>
                 Admin
               </Button>
             )}
