@@ -20,7 +20,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
             className="flex items-center gap-2.5"
           >
             <Image src="/logo.png" alt="Blue Ox Group" width={40} height={40} className="shrink-0" />
-            <span className="font-display text-base uppercase tracking-[0.08em]">Blue Ox Group</span>
+            <span className="font-display text-base uppercase tracking-[0.08em]">
+              <span style={{ color: "var(--brand-blue)" }}>Blue Ox</span>{" "}
+              <span style={{ color: "var(--brand-orange)" }}>Group</span>
+            </span>
           </Link>
 
           <nav className="flex items-center gap-2">

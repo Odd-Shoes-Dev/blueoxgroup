@@ -32,7 +32,7 @@ export function GoogleSignInButton() {
         await signIn("google", { redirectTo: "/auth-redirect" })
       }}
     >
-      <Button type="submit" variant="outline" className="w-full gap-2">
+      <Button type="submit" variant="outline" className="w-full gap-2 rounded-lg">
         <GoogleIcon />
         Continue with Google
       </Button>

@@ -44,10 +44,10 @@ export default function HomePage() {
         <div className="mb-6 inline-flex items-center rounded-full border bg-muted/50 px-3 py-1 font-utility text-xs font-medium text-muted-foreground">
           Sales representative network
         </div>
-        <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-7xl">
+        <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-7xl" style={{ color: "var(--brand-blue)" }}>
           The right rep,
           <br />
-          <span className="text-muted-foreground">in the right district.</span>
+          <span style={{ color: "oklch(0.28 0.15 264)" }}>in the right district.</span>
         </h1>
         <p className="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
           Blue Ox Group maintains a directory of active sales professionals across regions.
@@ -70,7 +70,7 @@ export default function HomePage() {
             {STATS.map(({ label, value }) => (
               <div key={label} className="text-center">
                 <dt className="text-sm text-muted-foreground">{label}</dt>
-                <dd className="mt-1 font-display text-4xl tracking-[0.06em]">{value}</dd>
+                <dd className="mt-1 font-display text-4xl tracking-[0.06em] text-brand-orange">{value}</dd>
               </div>
             ))}
           </dl>
@@ -80,7 +80,7 @@ export default function HomePage() {
       {/* How it works */}
       <section className="mx-auto max-w-5xl px-6 py-24">
         <div className="mb-14 text-center">
-          <h2 className="font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl">How it works</h2>
+          <h2 className="font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl" style={{ color: "var(--brand-blue)" }}>How it works</h2>
           <p className="mt-3 text-muted-foreground">
             Simple by design — coordination happens where it's fastest.
           </p>
@@ -88,7 +88,7 @@ export default function HomePage() {
         <ol className="grid gap-8 sm:grid-cols-3">
           {HOW_IT_WORKS.map(({ step, title, description }) => (
             <li key={step} className="flex flex-col gap-3">
-              <span className="font-utility text-sm font-medium text-muted-foreground">{step}</span>
+              <span className="font-utility text-sm font-bold text-brand-orange">{step}</span>
               <h3 className="font-medium">{title}</h3>
               <p className="text-sm text-muted-foreground">{description}</p>
             </li>
@@ -99,7 +99,7 @@ export default function HomePage() {
       {/* CTA */}
       <section className="border-t bg-muted/30">
         <div className="mx-auto max-w-5xl px-6 py-24 text-center">
-          <h2 className="mb-4 font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl">
+          <h2 className="mb-4 font-display text-3xl uppercase tracking-[0.08em] sm:text-4xl" style={{ color: "var(--brand-blue)" }}>
             Ready to join?
           </h2>
           <p className="mb-8 text-muted-foreground">

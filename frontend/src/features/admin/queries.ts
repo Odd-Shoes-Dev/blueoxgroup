@@ -2,6 +2,14 @@
 
 import { db } from "@/lib/providers/database"
 
+export interface SuspendedRep {
+  userId: string
+  email: string
+  fullName: string | null
+  avatarUrl: string | null
+  location: string | null
+}
+
 export interface RepRow {
   profileId: string
   userId: string
@@ -100,4 +108,34 @@ export async function listReps(filters: ListRepsFilters = {}): Promise<RepRow[]>
   }
 
   return result
+}
+
+export async function listSuspendedReps(): Promise<SuspendedRep[]> {
+  const rows = await db.sql`
+    select
+      u.id       as user_id,
+      u.email,
+      sp.full_name,
+      sp.avatar_url,
+      sp.location
+    from users u
+    left join sales_profiles sp on sp.user_id = u.id
+    where u.role = 'suspended'
+      and u.deleted_at is null
+    order by u.updated_at desc
+  `
+
+  return (rows as {
+    user_id: string
+    email: string
+    full_name: string | null
+    avatar_url: string | null
+    location: string | null
+  }[]).map((r) => ({
+    userId: r.user_id,
+    email: r.email,
+    fullName: r.full_name,
+    avatarUrl: r.avatar_url,
+    location: r.location,
+  }))
 }

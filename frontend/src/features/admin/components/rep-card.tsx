@@ -17,7 +17,7 @@ interface RepCardProps {
 export function RepCard({ rep, isSelf = false }: RepCardProps) {
   return (
     <div className="flex flex-col rounded-xl border bg-card p-5 gap-4 hover:shadow-sm transition-shadow">
-      {/* Header: avatar + name + status */}
+      {/* Header: avatar + name + status + three-dot menu */}
       <div className="flex items-start gap-3">
         <Avatar size="lg" className="size-12 shrink-0">
           {rep.avatarUrl && <AvatarImage src={rep.avatarUrl} alt={rep.fullName} />}
@@ -27,11 +27,24 @@ export function RepCard({ rep, isSelf = false }: RepCardProps) {
           <p className="font-medium leading-tight truncate">{rep.fullName}</p>
           <p className="text-sm text-muted-foreground truncate">{rep.location}</p>
           <div className="mt-1.5">
-            <Badge variant={rep.isActive ? "default" : "secondary"} className="text-xs">
-              {rep.isActive ? "Active" : "Inactive"}
-            </Badge>
+            {rep.isActive ? (
+              <Badge className="text-xs bg-brand-orange-light text-brand-orange-dark border-brand-orange/20">
+                Active
+              </Badge>
+            ) : (
+              <Badge variant="secondary" className="text-xs">
+                Inactive
+              </Badge>
+            )}
           </div>
         </div>
+        {!isSelf && (
+          <RepActions
+            profileId={rep.profileId}
+            isActive={rep.isActive}
+            fullName={rep.fullName}
+          />
+        )}
       </div>
 
       {/* Languages */}
@@ -51,16 +64,6 @@ export function RepCard({ rep, isSelf = false }: RepCardProps) {
         <span className="text-muted-foreground text-xs truncate">{rep.email}</span>
       </div>
 
-      {/* Actions */}
-      {!isSelf && (
-        <div className="pt-1 border-t">
-          <RepActions
-            profileId={rep.profileId}
-            isActive={rep.isActive}
-            fullName={rep.fullName}
-          />
-        </div>
-      )}
     </div>
   )
 }

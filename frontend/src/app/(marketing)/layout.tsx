@@ -10,7 +10,10 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
           <Link href="/" className="flex items-center gap-2.5">
             <Image src="/logo.png" alt="Blue Ox Group" width={44} height={44} className="shrink-0" />
-            <span className="font-display text-xl uppercase tracking-[0.08em]">Blue Ox Group</span>
+            <span className="font-display text-xl uppercase tracking-[0.08em]">
+              <span style={{ color: "var(--brand-blue)" }}>Blue Ox</span>{" "}
+              <span style={{ color: "var(--brand-orange)" }}>Group</span>
+            </span>
           </Link>
           <nav className="flex items-center gap-6">
             <Link
@@ -34,7 +37,10 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
             <div className="max-w-xs">
               <div className="flex items-center gap-2.5">
                 <Image src="/logo.png" alt="Blue Ox Group" width={40} height={40} className="shrink-0" />
-                <p className="font-display text-lg uppercase tracking-[0.08em]">Blue Ox Group</p>
+                <p className="font-display text-lg uppercase tracking-[0.08em]">
+                  <span style={{ color: "var(--brand-blue)" }}>Blue Ox</span>{" "}
+                  <span style={{ color: "var(--brand-orange)" }}>Group</span>
+                </p>
               </div>
               <p className="mt-2 text-sm text-muted-foreground">
                 A holding group connecting software companies with active sales professionals

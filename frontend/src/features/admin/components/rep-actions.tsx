@@ -1,9 +1,16 @@
 "use client"
 
 import { useTransition } from "react"
+import { MoreVerticalIcon } from "lucide-react"
 import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu"
 import { deactivateRepAction, softDeleteRepAction } from "../actions"
 
 interface RepActionsProps {
@@ -33,25 +40,29 @@ export function RepActions({ profileId, isActive, fullName }: RepActionsProps) {
   }
 
   return (
-    <div className="flex items-center gap-2">
-      {isActive && (
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={handleDeactivate}
-          disabled={isPending}
-        >
-          Deactivate
-        </Button>
-      )}
-      <Button
-        variant="destructive"
-        size="sm"
-        onClick={handleDelete}
-        disabled={isPending}
+    <DropdownMenu>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            aria-label="Actions"
+            disabled={isPending}
+          />
+        }
       >
-        Remove
-      </Button>
-    </div>
+        <MoreVerticalIcon className="size-4" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent side="bottom" align="end">
+        {isActive && (
+          <DropdownMenuItem onClick={handleDeactivate}>
+            Deactivate
+          </DropdownMenuItem>
+        )}
+        <DropdownMenuItem variant="destructive" onClick={handleDelete}>
+          Remove
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

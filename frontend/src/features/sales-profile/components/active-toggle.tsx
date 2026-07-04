@@ -25,7 +25,7 @@ export function ActiveToggle({ isActive }: ActiveToggleProps) {
   }
 
   return (
-    <div className="flex items-center gap-4 rounded-lg border p-4">
+    <div className={`flex items-center gap-4 rounded-lg border p-4 transition-colors ${isActive ? "border-brand-orange/30 bg-brand-orange-light" : ""}`}>
       <div className="flex-1">
         <p className="text-sm font-medium">Availability status</p>
         <p className="text-sm text-muted-foreground">

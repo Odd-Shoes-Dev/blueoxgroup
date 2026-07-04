@@ -41,11 +41,13 @@ const EDUCATION_LEVELS = [
 
 interface ProfileFormProps {
   profile: SalesProfile
+  onSaved?: (values: UpdateProfileInput & { avatarUrl: string | null }) => void
 }
 
-export function ProfileForm({ profile }: ProfileFormProps) {
+export function ProfileForm({ profile, onSaved }: ProfileFormProps) {
   const [isPending, startTransition] = useTransition()
   const [languageInput, setLanguageInput] = useState("")
+  const [avatarUrl, setAvatarUrl] = useState<string | null>(profile.avatarUrl)
 
   const form = useForm<UpdateProfileInput>({
     resolver: zodResolver(updateProfileSchema),
@@ -91,6 +93,7 @@ export function ProfileForm({ profile }: ProfileFormProps) {
         return
       }
       toast.success("Profile updated.")
+      onSaved?.({ ...values, avatarUrl })
     })
   }
 
@@ -98,7 +101,11 @@ export function ProfileForm({ profile }: ProfileFormProps) {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-5">
         <div className="flex justify-center pb-2">
-          <AvatarUpload name={profile.fullName} currentUrl={profile.avatarUrl} />
+          <AvatarUpload
+            name={profile.fullName}
+            currentUrl={profile.avatarUrl}
+            onUploadSuccess={(url) => setAvatarUrl(url)}
+          />
         </div>
 
         <FormField

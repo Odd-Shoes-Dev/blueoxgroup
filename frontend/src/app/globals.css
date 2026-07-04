@@ -7,6 +7,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-light: var(--brand-orange-light);
+  --color-brand-orange-dark: var(--brand-orange-dark);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-blue-light: var(--brand-blue-light);
+  --color-brand-blue-dark: var(--brand-blue-dark);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-space-mono);
   --font-display: var(--font-bebas);
@@ -58,8 +64,9 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  /* Brand blue #0044CC */
+  --primary: oklch(0.452 0.232 264);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -69,7 +76,15 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: oklch(0.452 0.232 264);
+  /* Brand orange #F58220 */
+  --brand-orange: oklch(0.72 0.165 54);
+  --brand-orange-light: oklch(0.96 0.04 54);
+  --brand-orange-dark: oklch(0.60 0.165 54);
+  /* Brand blue shades */
+  --brand-blue: oklch(0.452 0.232 264);
+  --brand-blue-light: oklch(0.95 0.04 264);
+  --brand-blue-dark: oklch(0.35 0.22 264);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -93,8 +108,9 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  /* Brand blue — lighter in dark mode for contrast */
+  --primary: oklch(0.65 0.20 264);
+  --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -104,7 +120,15 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: oklch(0.65 0.20 264);
+  /* Brand orange — slightly lighter in dark mode */
+  --brand-orange: oklch(0.78 0.15 54);
+  --brand-orange-light: oklch(0.25 0.05 54);
+  --brand-orange-dark: oklch(0.68 0.15 54);
+  /* Brand blue shades */
+  --brand-blue: oklch(0.65 0.20 264);
+  --brand-blue-light: oklch(0.22 0.05 264);
+  --brand-blue-dark: oklch(0.55 0.20 264);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -129,5 +153,15 @@
   }
   html {
     @apply font-sans;
+  }
+  h1,
+  h2 {
+    color: var(--brand-blue);
+  }
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--foreground);
   }
 }

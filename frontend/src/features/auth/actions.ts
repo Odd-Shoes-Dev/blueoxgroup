@@ -71,10 +71,12 @@ export async function signInAction(input: { email: string; password: string }): 
     }
   }
 
-  try {
-    await signIn("credentials", { ...parsed.data, redirect: false })
   } catch {
-    return { ok: false, message: "Invalid email or password." }
+    return {
+      ok: false,
+      message:
+        "Invalid email or password. If you created your account with Google, use 'Continue with Google' to sign in.",
+    }
   }
 
   return { ok: true }
