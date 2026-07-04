@@ -4,7 +4,7 @@ import { authConfig } from "./config"
 
 export const { handlers, auth, signIn, signOut } = NextAuth(authConfig)
 
-export type UserRole = "admin" | "sales_rep"
+export type UserRole = "admin" | "sales_rep" | "suspended"
 
 /** Returns the current session's user, or null if not signed in. */
 export async function getCurrentUser() {
