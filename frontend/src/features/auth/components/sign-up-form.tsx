@@ -91,8 +91,7 @@ export function SignUpForm() {
         return
       }
       toast.success("Account created.")
-      router.push("/dashboard")
-      router.refresh()
+      router.push("/auth-redirect")
     })
   }
 

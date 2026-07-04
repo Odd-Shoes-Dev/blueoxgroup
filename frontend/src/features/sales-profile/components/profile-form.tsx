@@ -28,6 +28,7 @@ import {
 import { updateProfileSchema, type UpdateProfileInput } from "../schemas"
 import { updateProfileAction } from "../actions"
 import type { SalesProfile } from "../queries"
+import { AvatarUpload } from "./avatar-upload"
 
 const EDUCATION_LEVELS = [
   "High School",
@@ -96,6 +97,10 @@ export function ProfileForm({ profile }: ProfileFormProps) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-5">
+        <div className="flex justify-center pb-2">
+          <AvatarUpload name={profile.fullName} currentUrl={profile.avatarUrl} />
+        </div>
+
         <FormField
           control={form.control}
           name="fullName"

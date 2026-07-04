@@ -10,6 +10,7 @@ export interface RepRow {
   email: string
   location: string
   educationLevel: string | null
+  avatarUrl: string | null
   isActive: boolean
   activeStatusUpdatedAt: string
   languages: string[]
@@ -33,6 +34,7 @@ export async function listReps(filters: ListRepsFilters = {}): Promise<RepRow[]>
       p.phone_number,
       p.location,
       p.education_level,
+      p.avatar_url,
       p.is_active,
       p.active_status_updated_at,
       u.email
@@ -50,6 +52,7 @@ export async function listReps(filters: ListRepsFilters = {}): Promise<RepRow[]>
     phone_number: string
     location: string
     education_level: string | null
+    avatar_url: string | null
     is_active: boolean
     active_status_updated_at: string
     email: string
@@ -78,6 +81,7 @@ export async function listReps(filters: ListRepsFilters = {}): Promise<RepRow[]>
     email: r.email,
     location: r.location,
     educationLevel: r.education_level,
+    avatarUrl: r.avatar_url,
     isActive: r.is_active,
     activeStatusUpdatedAt: r.active_status_updated_at,
     languages: langMap[r.profile_id] ?? [],

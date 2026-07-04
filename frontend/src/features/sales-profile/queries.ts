@@ -9,6 +9,7 @@ export interface SalesProfile {
   phoneNumber: string
   location: string
   educationLevel: string | null
+  avatarUrl: string | null
   isActive: boolean
   activeStatusUpdatedAt: string
   languages: string[]
@@ -23,6 +24,7 @@ export async function getProfileByUserId(userId: string): Promise<SalesProfile |
       p.phone_number,
       p.location,
       p.education_level,
+      p.avatar_url,
       p.is_active,
       p.active_status_updated_at
     from sales_profiles p
@@ -39,6 +41,7 @@ export async function getProfileByUserId(userId: string): Promise<SalesProfile |
         phone_number: string
         location: string
         education_level: string | null
+        avatar_url: string | null
         is_active: boolean
         active_status_updated_at: string
       }
@@ -61,6 +64,7 @@ export async function getProfileByUserId(userId: string): Promise<SalesProfile |
     phoneNumber: row.phone_number,
     location: row.location,
     educationLevel: row.education_level,
+    avatarUrl: row.avatar_url,
     isActive: row.is_active,
     activeStatusUpdatedAt: row.active_status_updated_at,
     languages: (langRows as { language: string }[]).map((r) => r.language),
