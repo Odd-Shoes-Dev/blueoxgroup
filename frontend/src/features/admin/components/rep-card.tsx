@@ -11,9 +11,10 @@ function getInitials(name: string): string {
 
 interface RepCardProps {
   rep: RepRow
+  isSelf?: boolean
 }
 
-export function RepCard({ rep }: RepCardProps) {
+export function RepCard({ rep, isSelf = false }: RepCardProps) {
   return (
     <div className="flex flex-col rounded-xl border bg-card p-5 gap-4 hover:shadow-sm transition-shadow">
       {/* Header: avatar + name + status */}
@@ -51,13 +52,15 @@ export function RepCard({ rep }: RepCardProps) {
       </div>
 
       {/* Actions */}
-      <div className="pt-1 border-t">
-        <RepActions
-          profileId={rep.profileId}
-          isActive={rep.isActive}
-          fullName={rep.fullName}
-        />
-      </div>
+      {!isSelf && (
+        <div className="pt-1 border-t">
+          <RepActions
+            profileId={rep.profileId}
+            isActive={rep.isActive}
+            fullName={rep.fullName}
+          />
+        </div>
+      )}
     </div>
   )
 }

@@ -11,9 +11,10 @@ function getInitials(name: string): string {
 
 interface RepsTableProps {
   reps: RepRow[]
+  currentUserId?: string
 }
 
-export function RepsTable({ reps }: RepsTableProps) {
+export function RepsTable({ reps, currentUserId }: RepsTableProps) {
   if (reps.length === 0) {
     return (
       <div className="flex h-40 items-center justify-center rounded-lg border border-dashed text-sm text-muted-foreground">
@@ -69,11 +70,13 @@ export function RepsTable({ reps }: RepsTableProps) {
                 </Badge>
               </td>
               <td className="px-4 py-3">
-                <RepActions
-                  profileId={rep.profileId}
-                  isActive={rep.isActive}
-                  fullName={rep.fullName}
-                />
+                {rep.userId !== currentUserId && (
+                  <RepActions
+                    profileId={rep.profileId}
+                    isActive={rep.isActive}
+                    fullName={rep.fullName}
+                  />
+                )}
               </td>
             </tr>
           ))}

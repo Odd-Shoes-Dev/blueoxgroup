@@ -94,7 +94,7 @@ export function CompleteProfileForm({ defaultName }: CompleteProfileFormProps) {
           return
         }
         toast.success("Profile created. Welcome!")
-        router.push("/dashboard")
+        router.push("/auth-redirect")
       } catch (err) {
         console.error("completeProfileAction threw:", err)
         toast.error("Something went wrong. Please try again.")

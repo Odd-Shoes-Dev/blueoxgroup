@@ -8,18 +8,23 @@ export default async function DashboardLayout({ children }: { children: React.Re
   const user = await getCurrentUser()
   if (!user) redirect("/sign-in")
 
+  const isAdmin = user.role === "admin"
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-          <Link href="/dashboard" className="text-sm font-semibold tracking-tight">
+          <Link
+            href={isAdmin ? "/admin" : "/dashboard"}
+            className="text-sm font-semibold tracking-tight"
+          >
             Blue Ox Group
           </Link>
 
           <nav className="flex items-center gap-2">
-            {user.role === "admin" && (
-              <Button variant="ghost" size="sm" nativeButton={false} render={<Link href="/admin" />}>
-                Admin
+            {isAdmin && (
+              <Button variant="ghost" size="sm" nativeButton={false} render={<Link href="/dashboard" />}>
+                My profile
               </Button>
             )}
             <form

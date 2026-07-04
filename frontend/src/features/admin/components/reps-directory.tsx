@@ -11,9 +11,10 @@ import type { RepRow } from "../queries"
 
 interface RepsDirectoryProps {
   reps: RepRow[]
+  currentUserId: string
 }
 
-export function RepsDirectory({ reps }: RepsDirectoryProps) {
+export function RepsDirectory({ reps, currentUserId }: RepsDirectoryProps) {
   const [location, setLocation] = useState("")
   const [language, setLanguage] = useState("")
   const [status, setStatus] = useState<"" | "active" | "inactive">("")
@@ -114,12 +115,12 @@ export function RepsDirectory({ reps }: RepsDirectoryProps) {
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((rep) => (
-              <RepCard key={rep.profileId} rep={rep} />
+              <RepCard key={rep.profileId} rep={rep} isSelf={rep.userId === currentUserId} />
             ))}
           </div>
         )
       ) : (
-        <RepsTable reps={filtered} />
+        <RepsTable reps={filtered} currentUserId={currentUserId} />
       )}
     </div>
   )

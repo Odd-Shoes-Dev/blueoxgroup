@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation"
 import type { Metadata } from "next"
 
-import { requireRole } from "@/lib/providers/auth"
+import { requireRole, getCurrentUser } from "@/lib/providers/auth"
 import { listReps } from "@/features/admin"
 import { RepsDirectory } from "@/features/admin/components/reps-directory"
 
@@ -16,7 +16,7 @@ export default async function AdminPage() {
     redirect("/dashboard")
   }
 
-  const reps = await listReps()
+  const [reps, user] = await Promise.all([listReps(), getCurrentUser()])
 
-  return <RepsDirectory reps={reps} />
+  return <RepsDirectory reps={reps} currentUserId={user!.id} />
 }

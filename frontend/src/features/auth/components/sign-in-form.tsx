@@ -37,9 +37,8 @@ export function SignInForm() {
         toast.error(result.message)
         return
       }
-      const callbackUrl = searchParams.get("callbackUrl") || "/dashboard"
+      const callbackUrl = searchParams.get("callbackUrl") || "/auth-redirect"
       router.push(callbackUrl)
-      router.refresh()
     })
   }
 
