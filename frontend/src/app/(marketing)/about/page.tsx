@@ -54,10 +54,10 @@ export default function AboutPage() {
       {/* Header */}
       <section className="mx-auto max-w-5xl px-6 pb-20 pt-16">
         <div className="max-w-2xl">
-          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-muted-foreground">
+          <p className="mb-3 font-utility text-xs uppercase tracking-widest text-muted-foreground">
             About Blue Ox Group
           </p>
-          <h1 className="mb-6 text-4xl font-semibold tracking-tight sm:text-5xl">
+          <h1 className="mb-6 font-display text-5xl uppercase tracking-[0.08em] sm:text-6xl">
             Software companies,
             <br />
             <span className="text-muted-foreground">human distribution.</span>
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <h2 className="mb-10 text-xl font-semibold tracking-tight">How we work</h2>
+        <h2 className="mb-10 font-display text-2xl uppercase tracking-[0.08em]">How we work</h2>
         <dl className="grid gap-8 sm:grid-cols-3">
           {VALUES.map(({ title, description }) => (
             <div key={title}>
@@ -89,7 +89,7 @@ export default function AboutPage() {
 
       {/* Companies */}
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <h2 className="mb-10 text-xl font-semibold tracking-tight">Our companies</h2>
+        <h2 className="mb-10 font-display text-2xl uppercase tracking-[0.08em]">Our companies</h2>
         <div className="grid gap-6 sm:grid-cols-3">
           {COMPANIES.map(({ name, focus, description }) => (
             <div
@@ -97,7 +97,7 @@ export default function AboutPage() {
               className="rounded-xl border bg-card p-6 transition-shadow hover:shadow-sm"
             >
               <p className="mb-1 font-medium">{name}</p>
-              <p className="mb-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              <p className="mb-3 font-utility text-xs uppercase tracking-widest text-muted-foreground">
                 {focus}
               </p>
               <p className="text-sm text-muted-foreground">{description}</p>
@@ -112,7 +112,7 @@ export default function AboutPage() {
       <section className="mx-auto max-w-5xl px-6 py-20">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">
+            <h2 className="font-display text-2xl uppercase tracking-[0.08em]">
               Represent Blue Ox Group products
             </h2>
             <p className="mt-1 text-sm text-muted-foreground">
